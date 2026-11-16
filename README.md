@@ -12,7 +12,8 @@ knowledge/   59 generic domain experts; know no project
 standards/   rust, interface, gui: musts (Reviewer can block) and shoulds (flagged)
 overlays/    _template.md and drafts; the live copy goes in each target repo at .factory/overlay.md
 threads/     one kickoff prompt per role thread + the shared loop
-lenses/      lens.json + one plain prompt per board lens (architect, research, adversary, operator); read verbatim by rusty_orch, so no frontmatter or title
+lenses/      one plain prompt per board lens (architect, research, adversary, operator); read verbatim by rusty_orch, so no frontmatter or title
+lens.json    board lens config at the repo root: providers, ceilings, lens bindings; its prompts are lenses/<id>.md
 docs/        factory-map.svg
 tools/       catalog check
 ```
