@@ -1,0 +1,13 @@
+{
+  "providers": {
+    "local": {"kind": "openai-http", "base_url": "http://192.168.10.104:8080/v1", "model": "qwen3.6-35b-a3b", "context_tokens": 32768, "price": {"input": 0, "output": 0, "cached_input": 0}},
+    "local-high": {"kind": "openai-http", "base_url": "http://192.168.10.104:8080/v1", "model": "gpt-oss-120b", "context_tokens": 32768, "price": {"input": 0, "output": 0, "cached_input": 0}},
+    "local-rebel": {"kind": "openai-http", "base_url": "http://192.168.10.104:8080/v1", "model": "qwen3.6-35b-a3b", "context_tokens": 32768, "price": {"input": 0, "output": 0, "cached_input": 0}}
+  },
+  "ceilings": {"experiment_usd": 1, "task_usd": 1, "task_calls": 60},
+  "lenses": [
+    {"id": "architect", "prompt": "lenses/architect.md", "domains": ["*"], "may_post": {"claim": true}, "proposers": ["local", "local-high"], "rebel": "local-rebel", "models": {"routine": ["local", "local-high", "local-rebel"], "contested": ["local-high"]}},
+    {"id": "adversary", "prompt": "lenses/adversary.md", "domains": ["*"], "may_post": {"evidence": ["counter", "support"]}, "diversity_group": "attack", "models": {"routine": ["local-high", "local"], "contested": ["local-high"]}},
+    {"id": "operator", "prompt": "lenses/operator.md", "domains": ["*"], "may_post": {"evidence": ["counter", "support"]}, "diversity_group": "attack", "models": {"routine": ["local", "local-high"], "contested": ["local-high", "local"]}}
+  ]
+}
